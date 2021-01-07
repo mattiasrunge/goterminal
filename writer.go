@@ -53,10 +53,6 @@ func (w *Writer) Print() error {
 			currentLine.Reset()
 		} else {
 			currentLine.Write([]byte{b})
-			if currentLine.Len() > termWidth {
-				w.lineCount++
-				currentLine.Reset()
-			}
 		}
 	}
 	_, err := w.Out.Write(w.Buf.Bytes())
